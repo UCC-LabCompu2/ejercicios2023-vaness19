@@ -1,0 +1,21 @@
+div{
+    border : 2px solid #a778d9;
+    border-radius: 15px;
+    margin: 20px 25px;
+    padding: 18px;
+    background-color: rgba(52,52,117,0.3);
+    box-shadow: 5px 7px #955ad2;
+
+}
+#foto{
+    width : 60px;
+    float: left;
+}
+.cuerpoPagina{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to right,#f1f1f1,#b4c5ff);
+}
+h1, h2, h3{
+    text-shadow: 2px 1px #555555;
+}
