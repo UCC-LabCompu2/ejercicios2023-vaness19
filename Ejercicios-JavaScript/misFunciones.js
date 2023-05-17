@@ -83,3 +83,12 @@ let mostrar_ocultrar=(valor)=>{
         document.getElementById("unDiv")[0].style.display='none';
     }
 }
+
+let sumar=() => {
+    let num1, num2, res;
+    num1 = document.getElementById("nums1").value;
+    num2 = document.getElementById("nums2").value;
+    res = Number(num1) + Number(num2);
+    document.getElementById("totalS").value = res;
+
+}
