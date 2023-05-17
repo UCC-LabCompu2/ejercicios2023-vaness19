@@ -6,31 +6,60 @@
  * @return Valor que retorna
  */
 
-function conversorUnidades(id,valor){
-    if(isNaN(valor)){
-        document.lasUnidades.unid_metro.value ="";
-        document.lasUnidades.unid_yarda.value = "";
-        document.lasUnidades.unid_pie.value = "";
-        document.lasUnidades.unid_pulgada.value = ""
+let conversorUnidades=(id,valor)=> {
+    // creacion de variables
+    let met, pul, pie, yar;
+
+        if(isNaN(valor)){
+        // Comprobar si el valor ingresado es incorrecto o no
+        met ="";
+        pul = "";
+        pie= "";
+        yar = "";
         alert("El valor ingresado es incorrecto");
     }
     else if(id=="metro"){
-        document.lasUnidades.unid_yarda.value = 1.09361*valor;
-        document.lasUnidades.unid_pie.value = 3.28084*valor;
-        document.lasUnidades.unid_pulgada.value = 39.3701*valor;
+        // Conversion metro a unidades
+        met = valor;
+        yar = 1.09361*valor;
+        pie = 3.28084*valor;
+        pul = 39.3701*valor;
     }
     else if (id="yarda"){
-        document.lasUnidades.unid_pulgada.value = 36*valor;
-        document.lasUnidades.unid_pie.value = 3*valor;
-        document.lasUnidades.unid_metro.value = 0.9144*valor;
+        pul= 36*valor;
+        pie = 3*valor;
+        met = 0.9144*valor;
     }
     else if (id="pie"){
         document.lasUnidades.unid_pulgada.value = 12*valor;
         document.lasUnidades.unid_metro.value = 0.3048*valor;
         document.lasUnidades.unid_yarda.value = 0.333333*valor;
     }
-    else if (id="pulgada"){}
-    document.lasUnidades.unid_metro.value = 0.0254*valor;
-    document.lasUnidades.unid_yarda.value = 0.0277778*valor;
-    document.lasUnidades.unid_pie.value = 0.0833333*valor;
+    else if (id="pulgada") {
+        document.lasUnidades.unid_metro.value = 0.0254 * valor;
+        document.lasUnidades.unid_yarda.value = 0.0277778 * valor;
+        document.lasUnidades.unid_pie.value = 0.0833333 * valor;
+    }
+    //Asignacion de las valores a los inputs de la UI
+    document.lasUnidades.unid_metro.value =met;
+    document.lasUnidades.unid_yarda.value = yar;
+    document.lasUnidades.unid_pie.value = pie;
+    document.lasUnidades.unid_pulgada.value = pul;
+}
+/**
+ * Permite convertir unidades gradios a radianes y viceversa
+ * @method Nombre de la función
+ * @param {string} id -Id del input del formulario
+ * @return Valor que retorna
+ */
+function convertirGR(id){
+    if(id=="grados"){
+        let gr = document.getElementById("grados").value;
+        document.getElementById("radianes").value = (gr*Math.PI)/180;
+    }
+    else{
+        let rad = document.getElementById("radianes").value;
+        document.getElementById("grados").value = (rad*180)/Math.PI;
+
+    }
 }
