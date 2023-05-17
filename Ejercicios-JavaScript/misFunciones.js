@@ -52,14 +52,34 @@ let conversorUnidades=(id,valor)=> {
  * @param {string} id -Id del input del formulario
  * @return Valor que retorna
  */
-function convertirGR(id){
+let convertirGR=(id)=>{
+    let gr, rad;
     if(id=="grados"){
-        let gr = document.getElementById("grados").value;
-        document.getElementById("radianes").value = (gr*Math.PI)/180;
+        gr = document.getElementById("grados").value;
+        rad = (gr*Math.PI)/180;
     }
     else{
-        let rad = document.getElementById("radianes").value;
-        document.getElementById("grados").value = (rad*180)/Math.PI;
+        rad = document.getElementById("radianes").value;
+        gr = (rad*180)/Math.PI;
 
+    }
+    // Asignacion Final
+    document.getElementById("radianes").value = rad;
+    document.getElementById("grados").value = gr;
+
+}
+/**
+ * PPermite visualizar y ocultar un dov centro de la pagina
+ * @method mostrar_ocultrar
+ * @param {string} valor - Valor asociado a un radio button del html
+ * @return Valor que retorna
+ */
+let mostrar_ocultrar=(valor)=>{
+    console.log("El valor enviado a la funcion es "+valor);
+    if (valor==="val_mostrar"){
+        document.getElementById("unDiv")[0].style.display='block';
+    }
+    else{
+        document.getElementById("unDiv")[0].style.display='none';
     }
 }
