@@ -10,7 +10,10 @@ let conversorUnidades=(id,valor)=> {
     // creacion de variables
     let met, pul, pie, yar;
 
-        if(isNaN(valor)){
+    if(valor.includes(",")){
+        valor=valor.replace(",",".");
+    }
+    if(isNaN(valor)){
         // Comprobar si el valor ingresado es incorrecto o no
         met ="";
         pul = "";
@@ -41,10 +44,10 @@ let conversorUnidades=(id,valor)=> {
         document.lasUnidades.unid_pie.value = 0.0833333 * valor;
     }
     //Asignacion de las valores a los inputs de la UI
-    document.lasUnidades.unid_metro.value =met;
-    document.lasUnidades.unid_yarda.value = yar;
-    document.lasUnidades.unid_pie.value = pie;
-    document.lasUnidades.unid_pulgada.value = pul;
+    document.lasUnidades.unid_metro.value =Math.round(met*100)/100;
+    document.lasUnidades.unid_yarda.value = Math.round(yar*100)/100;
+    document.lasUnidades.unid_pie.value = pie.toFixed(2);
+    document.lasUnidades.unid_pulgada.value = pul.toFixed(2);
 }
 /**
  * Permite convertir unidades gradios a radianes y viceversa
@@ -84,11 +87,17 @@ let mostrar_ocultrar=(valor)=>{
     }
 }
 
+/**
+ * Permite calcular
+ * @method sumar
+ * @param {string} num -
+ * @return Valor que retorna
+ */
 let sumar=() => {
     let num1, num2, res;
     num1 = document.getElementById("nums1").value;
     num2 = document.getElementById("nums2").value;
     res = Number(num1) + Number(num2);
-    document.getElementById("totalS").value = res;
+    document.getElementById("totalS").innerHTML = res;
 
 }
