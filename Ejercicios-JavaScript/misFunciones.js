@@ -119,6 +119,21 @@ let cargarValores =() => {
     const unidad = urlCompleta[2];
     document.getElementById("dist").value=`${distancia} ${unidad}`;
 
+}
+function guardarLocalStorage(){
+    let distancia, undidad;
+    distancia = document.getElementById('distancia').value;
+    unidad = document.getElementsByName('unidad')[0].value;
+    localStorage.setItem("distanciaLS",distancia);
+    localStorage.setItem("unidades", unidad);
+    window.open("2_web.html");
+}
 
+function cargarLocalStorage(){
+    let cant, un;
+    cant = localStorage.getItem("distanciaLS");
+    un = localStorage.getItem("unidadesLS");
+
+    document.getElementById("dist").value = cant + ""+ un;
 
 }
