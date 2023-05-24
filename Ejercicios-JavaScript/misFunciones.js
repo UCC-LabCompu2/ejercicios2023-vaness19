@@ -90,7 +90,7 @@ let mostrar_ocultrar=(valor)=>{
 /**
  * Permite calcular
  * @method sumar
- * @param {string} num -
+ * @param {string} Valor -
  * @return Valor que retorna
  */
 let sumar=() => {
@@ -99,5 +99,26 @@ let sumar=() => {
     num2 = document.getElementById("nums2").value;
     res = Number(num1) + Number(num2);
     document.getElementById("totalS").innerHTML = res;
+
+}
+
+let generarUrl=() =>{
+   const dist = document.getElementById("distancia").value;
+   const unid = document.getElementsByName("unidades")[0].value;
+
+   const urlComp = `segundaWeb.html#${dist}#${unid}`;
+   window.open(urlComp);
+
+}
+
+let cargarValores =() => {
+    let urlCompleta = window.location.href;
+    urlCompleta = urlCompleta.split('#');
+
+    const distancia = urlCompleta[1];
+    const unidad = urlCompleta[2];
+    document.getElementById("dist").value=`${distancia} ${unidad}`;
+
+
 
 }
