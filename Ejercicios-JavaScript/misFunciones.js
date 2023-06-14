@@ -160,7 +160,7 @@ let guardarDatosLS = () => {
 
     localStorage.setItem("distanciaLS", dist); // guarda los datos en un localstorage
     localStorage.setItem("unidadLS", unid);
-    window.open("web2.html");
+    window.open("2_web.html");
 }
 
 let tomarDatosLS = () => {
