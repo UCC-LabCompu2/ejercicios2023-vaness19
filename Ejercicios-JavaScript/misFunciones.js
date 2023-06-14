@@ -128,40 +128,46 @@ function division()  {
 
 }
 
-let generarUrl=() =>{
-   const dist = document.getElementById("distancia").value;
-   const unid = document.getElementsByName("unidades")[0].value;
+/**
+ * Permite generar un url que calcule la distancia y su unidad para despues llamar otra pagina web y mostrar esos resultados
+ * @method generarUrl, cargarValores
+ */
 
-   const urlComp = `segundaWeb.html#${dist}#${unid}`;
-   window.open(urlComp);
+let generarUrl = () =>{
+    const dist = document.getElementById("distancia").value;
+    const unid = document.getElementsByName("unidades")[0].value;
 
+    const urlComp = `segundaWeb.html#${dist}#${unid}`;
+    window.open(urlComp, "_self");
 }
 
-let cargarValores =() => {
+let cargarValores = () =>{
     let urlCompleta = window.location.href;
-    urlCompleta = urlCompleta.split('#');
+    urlCompleta = urlCompleta.split("#");
 
     const distancia = urlCompleta[1];
-    const unidad = urlCompleta[2];
-    document.getElementById("dist").value=`${distancia} ${unidad}`;
-
-}
-function guardarLocalStorage(){
-    let distancia, undidad;
-    distancia = document.getElementById('distancia').value;
-    unidad = document.getElementsByName('unidad')[0].value;
-    localStorage.setItem("distanciaLS",distancia);
-    localStorage.setItem("unidades", unidad);
-    window.open("2_web.html");
+    const unidad= urlCompleta[2];
+    document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
 
-function cargarLocalStorage(){
-    let cant, un;
-    cant = localStorage.getItem("distanciaLS");
-    un = localStorage.getItem("unidadesLS");
+/**
+ * Permite generar un url que calcule la distancia y su unidad para despues llamar otra pagina web y mostrar esos resultados y guardarlos en una variablee storage
+ * @method generarUrl, cargarValores
+ */
+let guardarDatosLS = () => {
+    const dist = document.getElementById("distancia").value;
+    const unid = document.getElementsByName("unidades")[0].value;
 
-    document.getElementById("dist").value = cant + ""+ un;
+    localStorage.setItem("distanciaLS", dist); // guarda los datos en un localstorage
+    localStorage.setItem("unidadLS", unid);
+    window.open("web2.html");
+}
 
+let tomarDatosLS = () => {
+    const cant = localStorage.getItem("distanciaLS");
+    const unid = localStorage.getItem("unidadLS");
+
+    document.getElementById("dist").value= `${cant} ${unid}`;
 }
 
 function dibujarCirCuad(){
