@@ -77,15 +77,15 @@ let convertirGR=(id)=>{
  * @return Valor que retorna
  * @param valorMO
  */
-let mostrar_ocultar=(valorMO)=>{
+function mostrar_ocultar(valor){
     console.log("El valor enviado a la funcion es "+valor);
-    if (valorMO==="val_mostrar"){
-        document.getElementById("divMO").style.display='block';
+    if (valor==="val_mostrar"){
+        document.getElementById("unDiv").style.display='block';
     }
-    else if(valorMO==="val_ocultar"){
-        document.getElementById("divMO").style.display='none';
-        }
+    else{
+        document.getElementById("unDiv").style.display='none';
     }
+}
 
 /**
  * Permite calcular
