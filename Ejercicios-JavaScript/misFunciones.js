@@ -93,8 +93,8 @@ function mostrar_ocultar(valor){
  * @param {string} Valor -
  * @return Valor que retorna
  */
-let sumar=() => {
-    let num1, num2, res;
+function sumar()  {
+    var num1, num2, res;
     num1 = document.getElementById("nums1").value;
     num2 = document.getElementById("nums2").value;
     res = Number(num1) + Number(num2);
@@ -102,8 +102,8 @@ let sumar=() => {
 
 }
 
-let resta=() => {
-    let num1, num2, res;
+function resta()  {
+    var num1, num2, res;
     num1 = document.getElementById("numr1").value;
     num2 = document.getElementById("numr2").value;
     res = Number(num1) - Number(num2);
@@ -111,16 +111,16 @@ let resta=() => {
 
 }
 
-let multiplicacion=() => {
-    let num1, num2, res;
+function multiplicacion()  {
+    var num1, num2, res;
     num1 = document.getElementById("numm1").value;
     num2 = document.getElementById("numm2").value;
     res = Number(num1) * Number(num2);
     document.getElementById("totalM").innerHTML = res;
 
 }
-let division=() => {
-    let num1, num2, res;
+function division()  {
+    var num1, num2, res;
     num1 = document.getElementById("numd1").value;
     num2 = document.getElementById("numd2").value;
     res = Number(num1) / Number(num2);
