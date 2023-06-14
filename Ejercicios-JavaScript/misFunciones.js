@@ -74,18 +74,18 @@ let convertirGR=(id)=>{
 /**
  * Permite visualizar y ocultar un dov centro de la pagina
  * @method mostrar_ocultrar
- * @param {string} valor - Valor asociado a un radio button del html
  * @return Valor que retorna
+ * @param valorMO
  */
-let mostrar_ocultrar=(valor)=>{
+let mostrar_ocultar=(valorMO)=>{
     console.log("El valor enviado a la funcion es "+valor);
-    if (valor==="val_mostrar"){
-        document.getElementById("unDiv")[0].style.display='block';
+    if (valorMO==="val_mostrar"){
+        document.getElementById("divMO").style.display='block';
     }
-    else{
-        document.getElementById("unDiv")[0].style.display='none';
+    else if(valorMO==="val_ocultar"){
+        document.getElementById("divMO").style.display='none';
+        }
     }
-}
 
 /**
  * Permite calcular
@@ -99,6 +99,32 @@ let sumar=() => {
     num2 = document.getElementById("nums2").value;
     res = Number(num1) + Number(num2);
     document.getElementById("totalS").innerHTML = res;
+
+}
+
+let resta=() => {
+    let num1, num2, res;
+    num1 = document.getElementById("numr1").value;
+    num2 = document.getElementById("numr2").value;
+    res = Number(num1) - Number(num2);
+    document.getElementById("totalR").innerHTML = res;
+
+}
+
+let multiplicacion=() => {
+    let num1, num2, res;
+    num1 = document.getElementById("numm1").value;
+    num2 = document.getElementById("numm2").value;
+    res = Number(num1) * Number(num2);
+    document.getElementById("totalM").innerHTML = res;
+
+}
+let division=() => {
+    let num1, num2, res;
+    num1 = document.getElementById("numd1").value;
+    num2 = document.getElementById("numd2").value;
+    res = Number(num1) / Number(num2);
+    document.getElementById("totalD").innerHTML = res;
 
 }
 
