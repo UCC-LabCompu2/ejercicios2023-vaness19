@@ -72,7 +72,7 @@ let convertirGR=(id)=>{
 
 }
 /**
- * PPermite visualizar y ocultar un dov centro de la pagina
+ * Permite visualizar y ocultar un dov centro de la pagina
  * @method mostrar_ocultrar
  * @param {string} valor - Valor asociado a un radio button del html
  * @return Valor que retorna
@@ -170,11 +170,71 @@ function dibujar(event){
         ctx.fillRect(posX, posY, 5, 5);
         ctx.fill();
     }
-
 }
 function limpiarCanvas(){
     var canvas = document.getElementById("canvasAdibujar");
     var ctx = canvas.getContext("2d");
     canvas.width = canvas.width;
+
+}
+
+function dibujarCuadriculado(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var anchoMax=canvas.width;
+    var alturaMax = canvas.height;
+
+    // Dibujar lineas horizontales
+    ctx.beginPath();
+    for (var i=0;i<alturaMax;){
+    ctx.moveTo(0,i);
+    ctx.lineTo(1000,i);
+    ctx.strokeStyle="#cb7e93"
+    ctx.stroke();
+    i=i+20;
+    }
+    ctx.closePath();
+
+    // Dibujar lineas verticales
+    ctx.beginPath();
+    for (var i=0;i<anchoMax;){
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,1000);
+        ctx.strokeStyle="#cb7e93"
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    // Eje X
+    ctx.beginPath();
+    ctx.moveTo(0,alturaMax/2);
+    ctx.lineTo(anchoMax,alturaMax/2);
+    ctx.strokeStyle="#69c2b8"
+    ctx.stroke();
+    ctx.closePath();
+
+    // Eje Y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2,0);
+    ctx.lineTo(anchoMax/2,alturaMax);
+    ctx.strokeStyle="#69c2b8"
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function dibujarImagen(posX,posY){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    console.log(posX,posY);
+    var img = new Image();
+    img.src = "images/auto.png";
+    canvas.width = canvas.width;
+
+    img.onload = function () {
+        ctx.drawImage(img, posX, posY);
+    }
 
 }
