@@ -21,19 +21,19 @@ let conversorUnidades=(id,valor)=> {
         yar = "";
         alert("El valor ingresado es incorrecto");
     }
-    else if(id=="metro"){
+    else if(id==="metro"){
         // Conversion metro a unidades
         met = valor;
         yar = 1.09361*valor;
         pie = 3.28084*valor;
         pul = 39.3701*valor;
     }
-    else if (id="yarda"){
+    else if (id === "yarda"){
         pul= 36*valor;
         pie = 3*valor;
         met = 0.9144*valor;
     }
-    else if (id="pie"){
+    else if (id === "pie"){
         document.lasUnidades.unid_pulgada.value = 12*valor;
         document.lasUnidades.unid_metro.value = 0.3048*valor;
         document.lasUnidades.unid_yarda.value = 0.333333*valor;
@@ -88,10 +88,10 @@ function mostrar_ocultar(valor){
 }
 
 /**
- * Permite calcular
+ * Permite sumar los dos numeros
  * @method sumar
- * @param {string} Valor -
- * @return Valor que retorna
+ * @param {string} id - Id del input del formulario
+ * @param {number} value - Valor ingresado por el usuario
  */
 function sumar()  {
     var num1, num2, res;
@@ -101,7 +101,12 @@ function sumar()  {
     document.getElementById("totalS").innerHTML = res;
 
 }
-
+/**
+ * Permite restar los dos numeros
+ * @method restar
+ * @param {string} id - Id del input del formulario
+ * @param {number} value - Valor ingresado por el usuario
+ */
 function resta()  {
     var num1, num2, res;
     num1 = document.getElementById("numr1").value;
@@ -110,7 +115,12 @@ function resta()  {
     document.getElementById("totalR").innerHTML = res;
 
 }
-
+/**
+ * Permite multiplicar los dos numeros
+ * @method multiplicacion
+ * @param {string} id - Id del input del formulario
+ * @param {number} value - Valor ingresado por el usuario
+ */
 function multiplicacion()  {
     var num1, num2, res;
     num1 = document.getElementById("numm1").value;
@@ -119,6 +129,12 @@ function multiplicacion()  {
     document.getElementById("totalM").innerHTML = res;
 
 }
+/**
+ * Permite divisar los dos numeros
+ * @method division
+ * @param {string} id - Id del input del formulario
+ * @param {number} value - Valor ingresado por el usuario
+ */
 function division()  {
     var num1, num2, res;
     num1 = document.getElementById("numd1").value;
@@ -151,7 +167,7 @@ let cargarValores = () =>{
 }
 
 /**
- * Permite generar un url que calcule la distancia y su unidad para despues llamar otra pagina web y mostrar esos resultados y guardarlos en una variablee storage
+ * Permite generar un url que calcule la distancia y su unidad para despues llamar otra pagina web y mostrar esos resultados y guardarlos en una variable storage
  * @method generarUrl, cargarValores
  */
 let guardarDatosLS = () => {
@@ -169,7 +185,10 @@ let tomarDatosLS = () => {
 
     document.getElementById("dist").value= `${cant} ${unid}`;
 }
-
+/**
+ * Permite dibujar un circulo y un cuadrado en un canvas
+ * @method dibujarCirculoCuadrado
+ */
 function dibujarCirCuad(){
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -185,7 +204,10 @@ function dibujarCirCuad(){
     ctx.stroke();
     ctx.fill();
 }
-
+/**
+ * Permite dibujar en un canvas y luego limpiarlo cuando queremos
+ * @method limpiarcanvas, dibujar
+ */
 var bandera;
 function dibujar(event){
     var canvas = document.getElementById("canvasAdibujar");
@@ -209,7 +231,10 @@ function limpiarCanvas(){
     canvas.width = canvas.width;
 
 }
-
+/**
+ * Permite dibujar un canvas cuadriculado marcando el medio del canvas
+ * @method dibujarCuadriculado
+ */
 function dibujarCuadriculado(){
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -256,6 +281,11 @@ function dibujarCuadriculado(){
     ctx.closePath();
 }
 
+
+/**
+ * Permite dibujar una imagen en un canvas poniendo su posicion en el canvas y si no esta dar error
+ * @method dibujarImagen
+ */
 function dibujarImagen(posX,posY){
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -268,10 +298,15 @@ function dibujarImagen(posX,posY){
     img.onload = function () {
         ctx.drawImage(img, posX, posY);
     }
-
 }
+
 x=0;
 dx=2;
+
+/**
+ * Permite animar un auto en un canvas
+ * @method animarAuto
+ */
 function animarAuto(){
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
